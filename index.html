@@ -1,0 +1,102 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#7ec8a0">
+<title>おじさん畑</title>
+<link rel="icon" href="assets/icon.png">
+<link rel="apple-touch-icon" href="assets/icon.png">
+<link rel="stylesheet" href="style.css">
+
+<div id="app">
+  <!-- ヘッダーHUD -->
+  <header id="hud">
+    <div class="hud-title">おじさん畑</div>
+    <div class="hud-coins" id="coinBox">
+      <span class="coin-ico">🪙</span><span id="coinNum">0</span>
+    </div>
+    <button class="hud-btn" id="muteBtn" aria-label="音">🔊</button>
+  </header>
+
+  <!-- 環境タブ -->
+  <nav id="envTabs"></nav>
+
+  <!-- メイン畑 -->
+  <main id="fieldPage" class="page active">
+    <div id="fieldWrap">
+      <div id="field"></div>
+    </div>
+    <div id="fieldFx"></div>
+
+    <div id="actionBar">
+      <button class="act-btn primary" id="harvestAll">
+        <span class="act-ico">✋</span><span class="act-lbl">ぜんぶ収穫</span>
+      </button>
+      <button class="act-btn reward" id="waterAd">
+        <span class="badge-ad">AD</span>
+        <span class="act-ico">💧</span><span class="act-lbl">水やりブースト</span>
+      </button>
+      <button class="act-btn reward" id="rareAd">
+        <span class="badge-ad">AD</span>
+        <span class="act-ico">✨</span><span class="act-lbl">レア肥料</span>
+      </button>
+    </div>
+  </main>
+
+  <!-- 図鑑 -->
+  <section id="zukanPage" class="page">
+    <div class="page-head">
+      <h2>おじさん図鑑</h2>
+      <div class="zukan-count"><span id="zukanFound">0</span> / <span id="zukanTotal">0</span></div>
+    </div>
+    <div id="zukanGrid"></div>
+  </section>
+
+  <!-- ショップ -->
+  <section id="shopPage" class="page">
+    <div class="page-head"><h2>ショップ</h2></div>
+    <div id="shopList"></div>
+  </section>
+
+  <!-- ボトムナビ -->
+  <nav id="bottomNav">
+    <button class="nav-btn active" data-page="fieldPage"><span>🌱</span>畑</button>
+    <button class="nav-btn" data-page="zukanPage"><span>📖</span>図鑑</button>
+    <button class="nav-btn" data-page="shopPage"><span>🛒</span>ショップ</button>
+  </nav>
+
+  <!-- デイリーボーナス フローティング -->
+  <button id="dailyFab" class="hidden">🎁<span class="fab-lbl">デイリー</span></button>
+</div>
+
+<!-- トースト -->
+<div id="toast"></div>
+
+<!-- 広告モーダル -->
+<div id="adModal" class="modal hidden">
+  <div class="ad-card">
+    <div class="ad-tag">広告</div>
+    <div class="ad-body">
+      <div class="ad-visual">📺</div>
+      <div class="ad-count" id="adCount">3</div>
+      <div class="ad-note">（プロトタイプの疑似広告です）</div>
+    </div>
+  </div>
+</div>
+
+<!-- 収穫演出モーダル -->
+<div id="rewardModal" class="modal hidden">
+  <div class="reward-card" id="rewardCard"></div>
+</div>
+
+<!-- ストアモーダル(IAP mock) -->
+<div id="storeModal" class="modal hidden">
+  <div class="store-card">
+    <button class="close-x" id="storeClose">✕</button>
+    <h3 id="storeTitle">ショップ</h3>
+    <div id="storeBody"></div>
+  </div>
+</div>
+
+<script src="version.js"></script>
+<script src="update-gate.js"></script>
+<script src="services.js"></script>
+<script src="game.js"></script>
